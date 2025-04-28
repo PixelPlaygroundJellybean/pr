@@ -1,0 +1,258 @@
+/* styles.css */
+/* Global styles */
+html, body, #container {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.page {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.page.active {
+  display: flex;
+}
+
+/* Page-specific backgrounds */
+#welcome-page {
+  background: linear-gradient(135deg, #fceabb, #f8b500);
+}
+
+#quotes-page {
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+}
+
+#cake-page {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+#video-page {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+
+#final-page {
+  background: linear-gradient(135deg, #5ee7df, #b490ca);
+}
+
+/* Common text styles */
+.title {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  color: #fff;
+}
+
+.quote {
+  font-size: 1.5em;
+  color: #fff;
+  margin: 20px auto;
+  max-width: 600px;
+  min-height: 2em;
+}
+
+/* Buttons */
+.fancy-button {
+  background: linear-gradient(45deg, #ff6bd6, #7b42f6);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  padding: 0.8em 2em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.fancy-button.small {
+  padding: 0.6em 1.5em;
+  font-size: 0.9rem;
+}
+.fancy-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.fancy-button:active {
+  transform: translateY(0) scale(0.95);
+}
+.fancy-button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255,255,255,0.7);
+}
+
+/* Balloons on welcome page */
+.balloons {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  font-size: 2.5rem;
+  opacity: 0.8;
+  animation: floatUp 8s ease-in infinite;
+}
+.balloon:nth-child(1) {
+  animation-duration: 6s;
+}
+.balloon:nth-child(2) {
+  animation-duration: 8s;
+}
+.balloon:nth-child(3) {
+  animation-duration: 10s;
+}
+.balloon:nth-child(4) {
+  animation-duration: 7s;
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+/* Confetti effect on quotes page */
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.confetti::before, .confetti::after {
+  content: '';
+  position: absolute;
+  top: -5%;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  box-shadow:
+    0 20px #ff0, 50px 100px #f0f, 100px 150px #0ff,
+    150px 200px #0f0, 200px 250px #f00,
+    250px 300px #00f, 300px 50px #ff0,
+    350px 100px #f0f, 400px 150px #0ff,
+    450px 200px #0f0, 500px 250px #f00;
+  animation: confettiFall 5s linear infinite;
+}
+.confetti::after {
+  left: 50px;
+  animation-delay: 2.5s;
+}
+@keyframes confettiFall {
+  0% { transform: translateY(-10%); opacity: 1;}
+  100% { transform: translateY(100vh); opacity: 0;}
+}
+
+/* Sparkles on cake page */
+.sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.sparkles::before {
+  content: '🌟';
+  position: absolute;
+  font-size: 2rem;
+  top: 20%;
+  left: 30%;
+  animation: sparkle 2s infinite alternate;
+}
+.sparkles::after {
+  content: '✨';
+  position: absolute;
+  font-size: 1.5rem;
+  top: 70%;
+  left: 80%;
+  animation: sparkle 3s infinite alternate;
+}
+@keyframes sparkle {
+  from { opacity: 0.2; transform: scale(0.8);}
+  to { opacity: 1; transform: scale(1.2);}
+}
+
+/* Rotating background for video page */
+.rotating-bg {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent);
+  animation: rotateBg 20s linear infinite;
+  z-index: -1;
+}
+@keyframes rotateBg {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* Video styling */
+.cake-video, .final-video {
+  width: 80%;
+  max-width: 640px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  background: #000;
+}
+
+/* Fireworks effect on final page */
+.fireworks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+}
+
+@media (max-width: 600px) {
+    .title {
+      font-size: 2em;
+    }
+    .subtitle {
+      font-size: 1em;
+    }
+    .quote {
+      font-size: 1.2em;
+      padding: 0 10px;
+    }
+    .fancy-button {
+      padding: 0.6em 1.2em;
+      font-size: 0.9rem;
+    }
+    .cake-video, .final-video {
+      width: 95%;
+    }
+  }
+  

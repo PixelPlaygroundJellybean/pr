@@ -1,0 +1,83 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Celebration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <!-- Welcome Page -->
+    <div id="welcome-page" class="page active">
+      <h1 class="title">Happy Birthday! 🎉</h1>
+      <p class="subtitle">Welcome! Let's celebrate your special day.</p>
+      <button id="start-button" class="fancy-button">Start Celebration</button>
+      <div class="balloons">
+        <span class="balloon" style="left: 20%;">🎈</span>
+        <span class="balloon" style="left: 40%;">🎈</span>
+        <span class="balloon" style="left: 60%;">🎈</span>
+        <span class="balloon" style="left: 80%;">🎈</span>
+      </div>
+    </div>
+
+    <!-- Birthday Quotes Page -->
+    <div id="quotes-page" class="page">
+      <h2 class="title">Birthday Wishes ✨</h2>
+      <p id="quoteText" class="quote"></p>
+      <div class="button-row">
+        <button id="quotes-back" class="fancy-button small">Go Back</button>
+        <button id="quotes-next" class="fancy-button small">Next</button>
+      </div>
+      <div class="confetti"></div>
+    </div>
+
+    <!-- Cake Selection Page -->
+    <div id="cake-page" class="page">
+      <h2 class="title">Choose Your Cake 🎂</h2>
+      <div class="cake-options">
+        <div class="cake-option" data-cake="1">
+          <img src="https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Floral Cake">
+          <p class="caption">Floral Cake 💐</p>
+        </div>
+        <div class="cake-option" data-cake="2">
+          <img src="https://images.pexels.com/photos/913136/pexels-photo-913136.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Cupcake">
+          <p class="caption">Chocolate Cupcake 🧁</p>
+        </div>
+        <div class="cake-option" data-cake="3">
+          <img src="https://images.pexels.com/photos/140831/pexels-photo-140831.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fruit Cake">
+          <p class="caption">Fruit Cake 🍒</p>
+        </div>
+      </div>
+      <div class="button-row">
+        <button id="cake-back" class="fancy-button small">Go Back</button>
+      </div>
+      <div class="sparkles"></div>
+    </div>
+
+    <!-- Spinning Cake Video Page -->
+    <div id="video-page" class="page">
+      <h2 class="title">Enjoy Your Cake! 🎉</h2>
+      <div class="rotating-bg"></div>
+      <video id="cakeVideo" class="cake-video" controls autoplay loop></video>
+      <div class="button-row">
+        <button id="video-back" class="fancy-button small">Go Back</button>
+        <button id="video-next" class="fancy-button small">Next</button>
+      </div>
+    </div>
+
+    <!-- Final Animation Video Page -->
+    <div id="final-page" class="page">
+      <h2 class="title">Final Surprise 🎆</h2>
+      <video id="finalVideo" class="final-video" controls autoplay loop></video>
+      <div class="button-row">
+        <button id="final-back" class="fancy-button small">Go Back</button>
+      </div>
+      <div class="fireworks"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
